@@ -2,8 +2,6 @@
 title: "Specification Driven Development"
 ---
 
-# Specification Driven Development
-
 Research and templates on SDD — using AI coding agents with specs as the primary artifact.
 
 ---
