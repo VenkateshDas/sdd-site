@@ -1,4 +1,5 @@
 @use "./base.scss";
+@use "./variables.scss" as *;
 
 // Mermaid diagram theming
 // ───────────────────────
@@ -130,4 +131,59 @@ code.mermaid svg .cluster rect {
 :root[saved-theme="dark"] pre[data-mermaid-type^="flowchart"] code.mermaid svg .node path,
 :root[saved-theme="dark"] pre[data-mermaid-type^="flowchart"] code.mermaid svg .cluster rect {
   filter: drop-shadow(0 10px 26px rgba(2, 6, 23, 0.55));
+}
+
+// ─── Mobile ───────────────────────────────────────────────────────────────────
+
+@media all and ($mobile) {
+  // Article typography
+  .page article > h1 {
+    font-size: 1.4rem !important;
+  }
+
+  h2 { font-size: 1.2rem; }
+  h3 { font-size: 1.05rem; }
+
+  // Mermaid card — tighter on small screens
+  pre:has(> code.mermaid) {
+    border-radius: 10px;
+    padding: 0.6rem 0.5rem;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.07);
+    // Horizontal scroll with a right-edge fade to signal more content
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    mask-image: linear-gradient(to right, black 85%, transparent 100%);
+  }
+
+  // Shrink SVG text so diagrams stay legible when scrolling
+  code.mermaid svg text,
+  code.mermaid svg foreignObject div,
+  code.mermaid svg foreignObject span {
+    font-size: 13px !important;
+    font-weight: 500 !important;
+  }
+
+  // Pull back the desktop scale — let the diagram use full width
+  pre > code.mermaid svg {
+    transform: none;
+  }
+
+  // Tables — smaller text + ensure scroll container is full width
+  .table-container {
+    font-size: 0.82rem;
+    margin: 0 -0.5rem;
+    padding: 0 0.5rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  th, td {
+    padding: 0.2rem 0.5rem;
+    white-space: nowrap;
+  }
+
+  // Code blocks — prevent horizontal overflow from pushing the layout
+  pre:not(:has(> code.mermaid)) {
+    font-size: 0.78rem;
+  }
 }
