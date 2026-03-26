@@ -12,7 +12,7 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 CONTENT_DIR="$SCRIPT_DIR/content"
 
 echo "→ Syncing from Obsidian..."
-rsync -a --delete \
+rsync -a --delete --delete-excluded \
   --exclude='.DS_Store' \
   --exclude='*.canvas' \
   --exclude='.obsidian/' \
