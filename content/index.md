@@ -1,19 +1,18 @@
 ---
-title: "Venkatesh's Research"
+title: "Specification Driven Development"
 ---
 
-# Research & Knowledge Base
+# Specification Driven Development
 
-Deep research on topics at the intersection of AI, software engineering, and building systems that scale.
-
----
-
-## Published Research
-
-### AI & Coding Agents
-
-- [[SDD/Specification Driven Development using Coding Agents|Specification Driven Development using Coding Agents]] — How AI coding agents change the relationship between specs and code. Covers tools, architecture, and a practical framework for teams.
+Research and templates on SDD — using AI coding agents with specs as the primary artifact.
 
 ---
 
-*Notes here are permanent — processed, synthesised, and worth keeping.*
+## Research
+
+- [[Specification Driven Development using Coding Agents]] — Full landscape: origin, tools, architecture, and a practical framework for your team.
+
+## Templates
+
+- [[AGENTS-TEMPLATE|AGENTS.md Template]] — Universal agent instruction file for Claude Code, Cursor, Copilot, and more.
+- [[SPEC-TEMPLATE|SPEC-TEMPLATE.md]] — Feature specification template with user stories, acceptance criteria, and task tracking.

@@ -7,7 +7,7 @@
 
 set -e
 
-VAULT="/Users/venkateshmurugadas/Library/Mobile Documents/iCloud~md~obsidian/Documents/Venkatesh Learning/Research"
+VAULT="/Users/venkateshmurugadas/Library/Mobile Documents/iCloud~md~obsidian/Documents/Venkatesh Learning/Research/SDD"
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 CONTENT_DIR="$SCRIPT_DIR/content"
 
