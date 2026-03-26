@@ -16,6 +16,7 @@ rsync -a --delete \
   --exclude='.DS_Store' \
   --exclude='*.canvas' \
   --exclude='.obsidian/' \
+  --exclude='examples/' \
   "$VAULT/" "$CONTENT_DIR/"
 echo "  Done."
 
