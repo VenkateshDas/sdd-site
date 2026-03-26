@@ -1,18 +1,7 @@
----
-title: "SPEC-TEMPLATE"
-feature: "[Feature Name]"
-status: draft
-created: "[YYYY-MM-DD]"
-updated: "[YYYY-MM-DD]"
-author: "[Your name]"
-reviewers: []
-spec-level: 1
----
-
 <!--
   SPEC-TEMPLATE.md · Feature Specification Template
   ───────────────────────────────────────────────────
-  Copy to: specs/features/{feature-slug}.md
+  Copy to: specs/features/<feature-slug>.md
   Replace [PLACEHOLDERS]. Delete comments before sharing.
 
   This file answers WHAT to build (feature-scoped).
@@ -20,10 +9,16 @@ spec-level: 1
 
   Approval gate: set status → approved before any code is written.
   Context hygiene: keep the filled spec under ~200 lines. Split if larger.
-
-  Status values: draft | in-review | approved | in-progress | done
-  spec-level: 1 = spec-first (discard after) · 2 = spec-anchored (lives with code)
 -->
+---
+feature: "[Feature Name]"
+status: draft          # draft | in-review | approved | in-progress | done
+created: "[YYYY-MM-DD]"
+updated: "[YYYY-MM-DD]"
+author: "[Your name]"
+reviewers: []
+spec-level: 1          # 1 = spec-first (discard after)  2 = spec-anchored (lives with code)
+---
 
 # [Feature Name]
 
