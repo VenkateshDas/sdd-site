@@ -1,3 +1,133 @@
 @use "./base.scss";
 
-// put your custom CSS here!
+// Mermaid diagram theming
+// ───────────────────────
+// Mermaid diagrams use hardcoded light-pastel fill colors via inline `style`
+// attributes on SVG elements. CSS cannot override inline styles, so we always
+// render with theme: "base" + dark text (see mermaid.inline.ts).
+//
+// In dark mode we keep Mermaid on a dedicated card and then refine specific
+// diagram types in mermaid.inline.ts after Mermaid renders the SVG.
+
+pre:has(> code.mermaid) {
+  background:
+    radial-gradient(circle at top left, rgba(191, 219, 254, 0.18), transparent 28%),
+    linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  border: 1px solid #d7dee8;
+  border-radius: 18px;
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.08);
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: clamp(0.85rem, 2vw, 1.35rem);
+}
+
+:root[saved-theme="dark"] pre:has(> code.mermaid) {
+  background:
+    radial-gradient(circle at top left, rgba(96, 165, 250, 0.18), transparent 28%),
+    linear-gradient(180deg, #0f172a 0%, #111827 100%);
+  border-color: #334155;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5);
+}
+
+:root[saved-theme="dark"] pre[data-mermaid-type^="quadrantChart"] {
+  background:
+    radial-gradient(circle at top left, rgba(191, 219, 254, 0.18), transparent 28%),
+    linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  border-color: #cbd5e1;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+}
+
+// Ensure the SVG itself isn't accidentally darkened by any inherited filter
+:root[saved-theme="dark"] code.mermaid svg {
+  filter: none !important;
+}
+
+code.mermaid {
+  display: block;
+  width: max-content;
+  min-width: 100%;
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+code.mermaid svg {
+  display: block;
+  height: auto;
+  max-width: none !important;
+  margin: 0 auto;
+}
+
+pre > code.mermaid svg {
+  transform: scale(0.94);
+  transform-origin: top center;
+}
+
+// base.scss targets all SVG text globally. Mermaid also uses HTML labels inside
+// foreignObject nodes, so we enforce the same readable typography for both.
+code.mermaid svg text,
+code.mermaid svg foreignObject,
+code.mermaid svg foreignObject div,
+code.mermaid svg foreignObject span {
+  fill: #172033 !important;
+  color: #172033 !important;
+  font-family: var(--bodyFont) !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+}
+
+code.mermaid svg .nodeLabel,
+code.mermaid svg .cluster-label,
+code.mermaid svg .edgeLabel {
+  color: #172033 !important;
+}
+
+code.mermaid svg .edgeLabel rect,
+code.mermaid svg .labelBkg {
+  fill: rgba(255, 255, 255, 0.96) !important;
+}
+
+code.mermaid svg .flowchart-link,
+code.mermaid svg .edgePath .path,
+code.mermaid svg .relation {
+  stroke: #475569 !important;
+  stroke-width: 2px !important;
+}
+
+code.mermaid svg .node rect,
+code.mermaid svg .node polygon,
+code.mermaid svg .node circle,
+code.mermaid svg .node path,
+code.mermaid svg .cluster rect {
+  filter: drop-shadow(0 8px 18px rgba(148, 163, 184, 0.2));
+}
+
+:root[saved-theme="dark"] pre[data-mermaid-type^="flowchart"] code.mermaid svg text,
+:root[saved-theme="dark"] pre[data-mermaid-type^="flowchart"] code.mermaid svg foreignObject,
+:root[saved-theme="dark"] pre[data-mermaid-type^="flowchart"] code.mermaid svg foreignObject div,
+:root[saved-theme="dark"] pre[data-mermaid-type^="flowchart"] code.mermaid svg foreignObject span,
+:root[saved-theme="dark"] pre[data-mermaid-type^="flowchart"] code.mermaid svg .nodeLabel,
+:root[saved-theme="dark"] pre[data-mermaid-type^="flowchart"] code.mermaid svg .cluster-label,
+:root[saved-theme="dark"] pre[data-mermaid-type^="flowchart"] code.mermaid svg .edgeLabel {
+  fill: #e5eefc !important;
+  color: #e5eefc !important;
+}
+
+:root[saved-theme="dark"] pre[data-mermaid-type^="flowchart"] code.mermaid svg .edgeLabel rect,
+:root[saved-theme="dark"] pre[data-mermaid-type^="flowchart"] code.mermaid svg .labelBkg {
+  fill: rgba(20, 30, 48, 0.96) !important;
+  stroke: rgba(148, 163, 184, 0.65) !important;
+}
+
+:root[saved-theme="dark"] pre[data-mermaid-type^="flowchart"] code.mermaid svg .flowchart-link,
+:root[saved-theme="dark"] pre[data-mermaid-type^="flowchart"] code.mermaid svg .edgePath .path,
+:root[saved-theme="dark"] pre[data-mermaid-type^="flowchart"] code.mermaid svg .relation {
+  stroke: #94a3b8 !important;
+}
+
+:root[saved-theme="dark"] pre[data-mermaid-type^="flowchart"] code.mermaid svg .node rect,
+:root[saved-theme="dark"] pre[data-mermaid-type^="flowchart"] code.mermaid svg .node polygon,
+:root[saved-theme="dark"] pre[data-mermaid-type^="flowchart"] code.mermaid svg .node circle,
+:root[saved-theme="dark"] pre[data-mermaid-type^="flowchart"] code.mermaid svg .node path,
+:root[saved-theme="dark"] pre[data-mermaid-type^="flowchart"] code.mermaid svg .cluster rect {
+  filter: drop-shadow(0 10px 26px rgba(2, 6, 23, 0.55));
+}
