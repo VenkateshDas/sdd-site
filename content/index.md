@@ -12,8 +12,6 @@ status: permanent
 type: research
 ---
 
-# Specification Driven Development using Coding Agents
-
 > [!abstract] TL;DR
 > Specification Driven Development (SDD) flips the traditional relationship between specs and code — **the spec is the primary artifact; code is a generated output**. As AI coding agents mature, the developers who win are those who master writing specifications, not just prompts. This report maps the full landscape: origin, mental models, tools, architectures, and a practical framework for your team.
 
